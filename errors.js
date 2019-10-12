@@ -40,11 +40,29 @@ class NotFoundError extends ApolloError {
     }
 }
 
+class BadRequest extends Error {
+  constructor(message = "Field arguments were not setup correctly") {
+    super(message);
+    this.name = "BadRequest";
+    this.code = 400;
+  }
+}
+
+class IntervalServerError extends Error {
+  constructor(message = "Interval Server Error") {
+    super(message);
+    this.name = "IntervalServerError";
+    this.code = 500;
+  }
+}
+
 module.exports = {
     PickupGameExceedMaximumError,
     BasketballFieldClosedError,
     PickupGameOverlapError,
     PickupGameAlreadyPassedError,
     NotFoundError,
-    UserInputError
+    UserInputError,
+    BadRequest,
+    IntervalServerError
 };
